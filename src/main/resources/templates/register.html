@@ -1,0 +1,15 @@
+<form action="#" th:action="@{/adduser}" th:object="${user}" method="post" xmlns:th="http://www.w3.org/1999/xhtml">
+    <label for="username">Username</label>
+    <input type="text" th:field="*{username}" id="username" placeholder="username">
+    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+    <br>
+    <label for="email">Email</label>
+    <input type="email" th:field="*{email}" id="email" placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" th:field="*{password}" id="password" placeholder="password">
+    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+    <br>
+    <input type="submit" value="Add User">
+</form>

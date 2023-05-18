@@ -1,0 +1,32 @@
+<form th:action="@{/book/add}" method="post" enctype="multipart/form-data" xmlns:th="http://www.w3.org/1999/xhtml">
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="author" placeholder="Author">
+    <input type="text" name="description" placeholder="description">
+    <input type="text" name="date" placeholder="date">
+    <input type="number" name="page" placeholder="page">
+    <select name="category" id="category">
+        <option value="Sách 18+">Sách 18+</option>
+        <option value="Sách hay Nhật bản">Sách hay Nhật bản</option>
+    </select>
+    <input type="file" name="image" accept="image/*" id="myImage">
+    <img id="previewImage" width="100" height="100" src="" alt="Preview Image">
+    <input type="submit" value="Add Book">
+
+</form>
+
+<script >
+    const inputElement = document.getElementById("myImage");
+    const imgElement = document.getElementById("previewImage");
+
+    inputElement.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        imgElement.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+
+</script>
